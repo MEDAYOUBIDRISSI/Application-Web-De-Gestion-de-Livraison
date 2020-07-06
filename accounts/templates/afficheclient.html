@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card-shadow-primary card-border mb-3 card" id="data">
+    <div class="dropdown-menu-header">
+        <div class="dropdown-menu-header-inner bg-dark">
+            <div class="menu-header-image"></div>
+            <div class="menu-header-content">
+            <!--     <div class="avatar-icon-wrapper avatar-icon-lg">
+                    <div class="avatar-icon rounded btn-hover-shine"><img src="assets/images/avatars/12.jpg" alt="Avatar 5"></div>
+                </div> -->
+                <div>
+                    <h5 class="menu-header-title">{{client.nome}} {{client.prenom}}</h5>
+                    <h6 class="menu-header-subtitle"><strong>Telephone : </strong>{{client.tel}}</h6>
+                    <h6 class="menu-header-subtitle"><strong>Adresse : </strong>{{client.adress}}</h6>
+                </div>
+                <div class="menu-header-btn-pane">
+                    <button class="mr-2 btn btn-info btn-sm">Role: Client</button>
+                    <button onclick="PrintElem('data')" class="btn-icon btn-icon-only btn btn-warning btn-sm">Imprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-area-sm">
+        <div class="scrollbar-container ps ps--active-y">
+            <ul class="list-group list-group-flush">
+                {% for list in liste %}
+                <li class="list-group-item">
+                    <div class="widget-content p-0">
+                        <div class="widget-content-wrapper">
+                            <div class="widget-content-left center-elem mr-2">#{{list.id}} : </div>
+                            <div class="widget-content-left">
+                                <div class="widget-heading">{{list.libelle}}</div>
+                            </div>
+                            <div class="widget-content-right widget-content-actions">
+                                <button class="mr-1 btn-icon btn-icon-only btn btn-primary btn-sm">Done</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 200px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 121px;"></div></div></div>
+    </div>
+    <div class="text-center d-block card-footer">
+        <a href="http://127.0.0.1:8000/accounts/dashboard/" class="mr-2 border-0 btn-transition btn btn-outline-danger">Remove from list</a>
+    </div>
+    <script>
+    function PrintElem(elem)
+{
+    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('</head><body >');
+    mywindow.document.write('<h1>' + document.title  + '</h1>');
+    mywindow.document.write(document.getElementById(elem).innerHTML);
+    mywindow.document.write('</body></html>');
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10*/
+    mywindow.print();
+    mywindow.close();
+    return true;
+}
+</script>
+</div>
+
+{% endblock %}

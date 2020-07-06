@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card mb-3">
+        <div class="modal-dialog w-100">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h5 class="modal-title">
+                            </h5>
+                        <h4 class="mt-2">
+                            <div>Modifier Client</div>
+                        </h4>
+                        <div class="divider row"></div>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="position-relative form-group"><input name="nome" id="exampleEmail" placeholder="Nom de Client..." type="text" value={{client.nome}} class="form-control"></div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="position-relative form-group"><input name="prenom" id="exampleName" placeholder="Prenom de Client..." type="text" value={{client.prenom}} class="form-control"></div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="position-relative form-group"><input name="tel" id="examplePassword" placeholder="TelePhone de Client..." type="text" value={{client.tel}}  class="form-control"></div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="position-relative form-group"><input name="adress" id="exampleName" placeholder="Adress de Client..." type="text" value={{client.adress}}  class="form-control"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-block text-center" >
+                            <button style="color: white" class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-warning btn-lg">Modifier Client </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

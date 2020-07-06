@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div>
+                    List des Livraison de <a href="#" class="btn-shadow btn btn-primary">{{client.prenom}} {{client.nome}}</a>
+<!--                     <div class="page-title-subheading">
+                        This is an example dashboard created using build-in elements and components.
+                    </div> -->
+                </div>
+            </div>
+            <div class="page-title-actions">
+                <div class="d-inline-block">
+                    <a href="{% url 'addlivraison' client.id %}" type="button" class="btn-shadow btn btn-info" style="color: white">
+                        Ajouter Livraison
+                    </a>
+                </div>
+            </div>    
+        </div>
+    </div>            
+    <div class="tabs-animation">
+        <div class="card mb-3">
+            <div class="card-header-tab card-header">
+                <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                    Dynamic Tables
+                </div>
+            </div>
+            <div class="card-body">
+                <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Libelle</th>
+                        <th>Date Livraison</th>
+                        <th>Mis a Jour</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for list in liste %}
+                    <tr>
+                        <td>{{list.id}}</td>
+                        <td>{{list.libelle}}</td>
+                        <td>{{list.date}}</td>
+                        <td>
+                            <a href="{% url 'editelivraison' client.id list.id %}" style="color: white" class="btn-shadow btn btn-warning">Modifier</a> 
+                            <a href="{% url 'deletelivraison' client.id list.id %}" class="btn-shadow btn btn-danger">Suprimer</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    

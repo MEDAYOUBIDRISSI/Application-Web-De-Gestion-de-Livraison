@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% block content  %}
+<div class="h5 modal-title text-center">
+    <h4 class="mt-2">
+        <div>Page Inscription</div>
+        <span>Please sign in to your account below.</span>
+    </h4>
+</div>
+<form method = 'POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button style="width: 225px;position: relative;left: 110px;" class="btn btn-primary btn-lg">Inscription</button>
+</form>
+ <div class="divider"></div>
+<h6 class="mb-0">account? <a href="{% url 'login_url' %}" class="text-primary">Login</a></h6>
+{% endblock %}

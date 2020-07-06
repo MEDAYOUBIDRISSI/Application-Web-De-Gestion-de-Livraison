@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading">
+            <div>
+                Ajouter Livraison Pour Client : <a href="#" class="btn-shadow btn btn-primary">{{client.prenom}} {{client.nome}}</a>
+<!--                     <div class="page-title-subheading">
+                    This is an example dashboard created using build-in elements and components.
+                </div> -->
+            </div>
+        </div>  
+    </div>
+</div>  
+<div class="card mb-3">
+    <div class="modal-dialog w-100">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h5 class="modal-title">
+                        </h5>
+                    <h4 class="mt-2">
+                            <div>Ajouter Livraison</div>
+                    </h4>
+                    <div class="divider row"></div>
+                    
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="position-relative form-group">
+                                    <input name="libelle" id="exampleEmail" placeholder="Libelle de livraison..." type="text" class="form-control"></div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                             <label for="" class="">Date:</label>
+                                        </div>
+                                    </div>
+                                    <input style="height: 50px" class="form-control input-mask-trigger" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" im-insert="false" name="date">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-block text-center">
+                            <input type="submit" class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg" value="Ajouter Livraison" />
+                        </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
